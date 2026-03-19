@@ -1,6 +1,6 @@
 # Compotent 2026-03-19
 
-> Fast build. Sharp edges. Surprisingly useful.
+> Clean UI, weird energy, zero fluff.
 
 ## What this is
 
@@ -35,14 +35,11 @@ Playwright smoke test confirms:
 
 ## Build mood
 
-**Signal Lab**
+**Midnight Control Panel**
 
 ## Inspiration refs from knowledge base
 
-- projects/knowledge/data/research/github-docs/20260316-191501/summary.md
-- projects/knowledge/.venv/lib/python3.14/site-packages/playwright/driver/package/lib/client/clock.js
-- projects/knowledge/data/swift/20260311-062135-apple-swift-fullsite-v3/pages-md/00577-tutorials-data-documentation-swiftui-modal-presentations.json.md
-- projects/knowledge/data/research/arxiv/20260319-110854/summary.md
+
 
 ## Artifacts
 
