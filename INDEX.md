@@ -1,4 +1,4 @@
 # Compotent Index
 
-- 2026-03-19: [piece-2026-03-19](./pieces/piece-2026-03-19) — Signal Lab
-- 2026-03-19: [piece-2026-03-19](./pieces/piece-2026-03-19) — Midnight Control Panel
+- 2026-03-19: [neon-signal-panel-2026-03-19](./neon-signal-panel-2026-03-19) — Neon Signal Panel
+- 2026-03-19: [orbital-glass-cta](./orbital-glass-cta) — Orbital Glass CTA
