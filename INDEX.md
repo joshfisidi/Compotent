@@ -8,3 +8,4 @@
 - 2026-03-23: [aurora-data-chip-2026-03-23](./aurora-data-chip-2026-03-23) — Signal Lab
 - 2026-03-24: [orbital-glass-cta-2026-03-24](./orbital-glass-cta-2026-03-24) — Neon Utility
 - 2026-03-26: [prism-command-button-2026-03-26](./prism-command-button-2026-03-26) — Glassmorphism Sprint
+- 2026-03-27: [aurora-data-chip-2026-03-27](./aurora-data-chip-2026-03-27) — Signal Lab
