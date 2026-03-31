@@ -10,3 +10,4 @@
 - 2026-03-26: [prism-command-button-2026-03-26](./prism-command-button-2026-03-26) — Glassmorphism Sprint
 - 2026-03-27: [aurora-data-chip-2026-03-27](./aurora-data-chip-2026-03-27) — Signal Lab
 - 2026-03-30: [prism-command-button-2026-03-30](./prism-command-button-2026-03-30) — Glassmorphism Sprint
+- 2026-03-31: [aurora-data-chip-2026-03-31](./aurora-data-chip-2026-03-31) — Signal Lab
