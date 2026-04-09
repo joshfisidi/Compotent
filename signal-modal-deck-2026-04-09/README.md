@@ -44,6 +44,7 @@ Playwright smoke test confirms:
 ## Artifacts
 
 - `preview.png` (Playwright screenshot)
+- `loop.gif` (short interaction loop)
 - `peekaboo.png` (if available)
 
 ---
