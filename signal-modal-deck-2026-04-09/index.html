@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Signal Modal Deck</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body { background: radial-gradient(circle at top right, #0f172a, #020617 45%, #000 100%); }
+    .glass { backdrop-filter: blur(10px); background: rgba(15, 23, 42, 0.55); }
+    #bg3d { position: fixed; inset: 0; z-index: -1; }
+  </style>
+</head>
+<body class="text-slate-100 min-h-screen" x-data="compotentApp()">
+  <canvas id="bg3d"></canvas>
+
+  <main class="max-w-5xl mx-auto p-6 md:p-10">
+    <header class="mb-8">
+      <p class="text-xs uppercase tracking-[0.3em] text-cyan-300/80">Compotent • Daily Build</p>
+      <h1 class="text-3xl md:text-5xl font-bold mt-2">Signal Modal Deck</h1>
+      <p class="text-slate-300 mt-3">Mood: Future Dashboard. Built from local knowledge sparks + modern frontend stack.</p>
+    </header>
+
+    <section class="grid md:grid-cols-3 gap-4">
+      <button id="cta-btn" @click="open=true" class="glass rounded-2xl p-5 text-left border border-cyan-400/20 hover:border-cyan-300/60 transition">
+        <p class="text-xs text-cyan-300">Action</p>
+        <h2 class="text-xl font-semibold mt-1">Launch Modal</h2>
+        <p class="text-slate-300 mt-2">Click to reveal a shadcn-style utility modal with controls.</p>
+      </button>
+
+      <button @click="pulse = !pulse" :class="pulse ? 'ring-4 ring-fuchsia-400/50' : ''" class="glass rounded-2xl p-5 border border-fuchsia-400/20 transition">
+        <p class="text-xs text-fuchsia-300">Effect</p>
+        <h2 class="text-xl font-semibold mt-1">Pulse Toggle</h2>
+        <p class="text-slate-300 mt-2">Micro-interaction for attention signaling.</p>
+      </button>
+
+      <div class="glass rounded-2xl p-5 border border-emerald-400/20">
+        <p class="text-xs text-emerald-300">Data</p>
+        <h2 class="text-xl font-semibold mt-1">Mini Trend</h2>
+        <p class="text-slate-300 mt-2">Realtime-style chart block powered by Chart.js.</p>
+      </div>
+    </section>
+
+    <section class="glass rounded-2xl p-6 mt-6 border border-slate-700/70">
+      <div class="flex items-center justify-between mb-3">
+        <h3 class="text-lg font-semibold">Momentum Chart</h3>
+        <span class="text-xs text-slate-400">Synthetic demo data</span>
+      </div>
+      <canvas id="trendChart" height="110"></canvas>
+    </section>
+
+    <section class="glass rounded-2xl p-6 mt-6 border border-slate-700/70">
+      <h3 class="text-lg font-semibold">Inspiration Sources</h3>
+      <pre class="mt-3 text-xs text-slate-300 whitespace-pre-wrap"></pre>
+    </section>
+  </main>
+
+  <div x-show="open" x-transition.opacity class="fixed inset-0 bg-black/70 flex items-center justify-center p-6" style="display:none">
+    <div class="w-full max-w-lg glass border border-cyan-300/30 rounded-2xl p-6" @click.outside="open=false">
+      <h3 class="text-2xl font-bold">Compotent Modal</h3>
+      <p class="text-slate-300 mt-2">A reusable, clean modal shell with sensible defaults and smooth transitions.</p>
+      <div class="mt-5 flex gap-3">
+        <button @click="open=false" class="px-4 py-2 rounded-lg bg-slate-700 hover:bg-slate-600">Close</button>
+        <button class="px-4 py-2 rounded-lg bg-cyan-500 text-black font-semibold hover:bg-cyan-400">Primary</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import * as THREE from 'https://unpkg.com/three@0.160.0/build/three.module.js';
+
+    window.compotentApp = () => ({ open:false, pulse:false });
+
+    const ctx = document.getElementById('trendChart');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        datasets: [{
+          label: 'Signal',
+          data: [12, 19, 14, 22, 18, 26, 31],
+          borderColor: '#22d3ee',
+          backgroundColor: 'rgba(34,211,238,0.18)',
+          fill: true,
+          tension: 0.35,
+        }]
+      },
+      options: {
+        plugins: { legend: { labels: { color: '#cbd5e1' } } },
+        scales: {
+          x: { ticks: { color: '#94a3b8' }, grid: { color: 'rgba(148,163,184,0.12)' } },
+          y: { ticks: { color: '#94a3b8' }, grid: { color: 'rgba(148,163,184,0.12)' } },
+        }
+      }
+    });
+
+    const canvas = document.getElementById('bg3d');
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(60, innerWidth / innerHeight, 0.1, 100);
+    camera.position.z = 4;
+
+    const geom = new THREE.TorusKnotGeometry(1.05, 0.26, 120, 18);
+    const mat = new THREE.MeshStandardMaterial({ color: 0x22d3ee, roughness: 0.3, metalness: 0.7, emissive: 0x0f172a });
+    const mesh = new THREE.Mesh(geom, mat);
+    scene.add(mesh);
+    scene.add(new THREE.PointLight(0xffffff, 1.2, 20));
+
+    const resize = () => {
+      renderer.setSize(innerWidth, innerHeight, false);
+      camera.aspect = innerWidth / innerHeight;
+      camera.updateProjectionMatrix();
+    };
+    addEventListener('resize', resize);
+    resize();
+
+    renderer.setAnimationLoop(() => {
+      mesh.rotation.x += 0.003;
+      mesh.rotation.y += 0.005;
+      renderer.render(scene, camera);
+    });
+  </script>
+</body>
+</html>
