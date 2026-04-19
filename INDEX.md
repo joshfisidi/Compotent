@@ -27,3 +27,4 @@
 - 2026-04-14: [prism-command-button-2026-04-14](./prism-command-button-2026-04-14) — Glassmorphism Sprint
 - 2026-04-17: [signal-modal-deck-2026-04-17](./signal-modal-deck-2026-04-17) — Future Dashboard
 - 2026-04-18: [prism-command-button-2026-04-18](./prism-command-button-2026-04-18) — Glassmorphism Sprint
+- 2026-04-19: [aurora-data-chip-2026-04-19](./aurora-data-chip-2026-04-19) — Signal Lab
