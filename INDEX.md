@@ -36,3 +36,4 @@
 - 2026-04-25: [signal-modal-deck-2026-04-25](./signal-modal-deck-2026-04-25) — Future Dashboard
 - 2026-04-26: [prism-command-button-2026-04-26](./prism-command-button-2026-04-26) — Glassmorphism Sprint
 - 2026-04-27: [aurora-data-chip-2026-04-27](./aurora-data-chip-2026-04-27) — Signal Lab
+- 2026-04-28: [orbital-glass-cta-2026-04-28](./orbital-glass-cta-2026-04-28) — Neon Utility
